@@ -1,24 +1,19 @@
 ﻿namespace SnakeTool;
 
-public class HorizontalLine
+public class HorizontalLine: Figure
 {
-    private List<Point> plist;
-
-    public HorizontalLine(int xLeft, int xRight, int yHorizontal, char horizontalSymbol )
+    public HorizontalLine(int xLeft, int xRight, int yHorizontal, char horizontalSymbol)
     {
         plist = new List<Point>();
-        for (int x = xLeft; x <= xRight; x++)
+        for (var x = xLeft; x <= xRight; x++)
         {
-            Point p = new Point(x, yHorizontal, horizontalSymbol);
+            var p = new Point(x, yHorizontal, horizontalSymbol);
             plist.Add(p);
         }
     }
-
-    public void Drow()
-    {
-        foreach (Point VARIABLE in plist)
-        {
-            VARIABLE.Draw();
-        }
-    }
+/*
+ * Метод описан в двух классах одинаково
+ * так что мы возьмем наследование - что бы можно было полностью или частично переиспользовать методы класса
+ * Draw() в новый класс фигуры
+ */
 }
