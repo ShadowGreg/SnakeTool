@@ -5,12 +5,12 @@
  */
 public class Snake: Figure
 {
-    private  Direction _direction;
+    private Direction _direction;
     public Snake(Point tail, int lenght, Direction direction)
     {
         _direction = direction;
         pList = new List<Point>();
-        for (int i = 0; i < lenght; i++)
+        for (var i = 0; i < lenght; i++)
         {
             var p = new Point(tail);
             p.PointMove(i, _direction);
@@ -31,7 +31,22 @@ public class Snake: Figure
     {
         Point head = pList.Last();
         var nextPoint = new Point(head);
-        nextPoint.PointMove(1,_direction);
+        nextPoint.PointMove(1, _direction);
         return nextPoint;
+    }
+
+    public void HandleKey(ConsoleKey key)
+    {
+        while (true)
+        {
+            _direction = key switch
+            {
+                ConsoleKey.LeftArrow => Direction.LEFT,
+                ConsoleKey.RightArrow => Direction.RIGHT,
+                ConsoleKey.DownArrow => Direction.DOWN,
+                ConsoleKey.UpArrow => Direction.UP,
+                _ => _direction
+            };
+        }
     }
 }

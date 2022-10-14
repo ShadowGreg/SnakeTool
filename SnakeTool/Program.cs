@@ -2,7 +2,9 @@
 
 
 //устанавливаем размер буфера для не возможности его перемотки
-Console.SetBufferSize(5864, 29420);
+System.Diagnostics.Process.GetCurrentProcess();
+Console.SetBufferSize(27296, 4148);
+Console.CursorVisible = false;
 Console.Clear();
 // Отрисовка рамочки
 var upLine = new HorizontalLine(0, 78, 0, '+');
@@ -17,11 +19,16 @@ rightLine.Draw();
 //Отрисовка точек
 var p = new Point(4, 5, '*');
 var snake = new Snake(p, 4, Direction.RIGHT);
-for (int INDEX = 0; INDEX < 10; INDEX++)
-{
-    snake.Move();
-    snake.Draw();
-    Thread.Sleep(300);
-}
+snake.Draw();
 
-Console.ReadKey();
+while (true)
+{
+    if (Console.KeyAvailable)
+    {
+        ConsoleKeyInfo key = Console.ReadKey();
+        snake.HandleKey(key.Key);
+    }
+
+    Thread.Sleep(100);
+    snake.Move();
+}
