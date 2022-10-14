@@ -37,16 +37,24 @@ public class Snake: Figure
 
     public void HandleKey(ConsoleKey key)
     {
-        while (true)
+        if (key == ConsoleKey.LeftArrow)
+            _direction = Direction.LEFT;
+        else if (key == ConsoleKey.RightArrow)
+            _direction = Direction.RIGHT;
+        else if (key == ConsoleKey.DownArrow)
+            _direction = Direction.DOWN;
+        else if (key == ConsoleKey.UpArrow)
+            _direction = Direction.UP;
+    }
+    public bool Eat(Point food)
+    {
+        Point head = GetNextPoint();
+        if (head.IsHit(food))
         {
-            _direction = key switch
-            {
-                ConsoleKey.LeftArrow => Direction.LEFT,
-                ConsoleKey.RightArrow => Direction.RIGHT,
-                ConsoleKey.DownArrow => Direction.DOWN,
-                ConsoleKey.UpArrow => Direction.UP,
-                _ => _direction
-            };
+            food.symbol = head.symbol;
+            pList.Add(food);
+            return true;
         }
+        return false;
     }
 }

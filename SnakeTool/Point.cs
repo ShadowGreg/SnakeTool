@@ -58,4 +58,8 @@ public class Point
         symbol = ' ';
         Draw();
     }
+    public bool IsHit(Point food)
+    {
+        return food.x == this.x && food.y == this.y;
+    }
 }
