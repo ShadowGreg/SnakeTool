@@ -17,9 +17,40 @@ public class Point
         this.symbol = _symbol;
     }
 
+    public Point(Point inPoint)
+    {
+        x = inPoint.x;
+        y = inPoint.y;
+        symbol = inPoint.symbol;
+    }
+
+    public void Move(int offset, Direction direction)
+    {
+        if (direction == Direction.RIGHT)
+        {
+            x = x + offset;
+        }
+        else if (direction == Direction.LEFT)
+        {
+            x = x - offset;
+        }
+        else if (direction == Direction.UP)
+        {
+            y = y + offset;
+        }
+        else if (direction == Direction.DOWN)
+        {
+            y = y - offset;
+        }
+    }
+
     public void Draw()
     {
         Console.SetCursorPosition(x, y);
         Console.Write(symbol);
+    }
+    public override string ToString()
+    {
+        return x + ", " + y + ", " + symbol;
     }
 }

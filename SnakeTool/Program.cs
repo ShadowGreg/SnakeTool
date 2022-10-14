@@ -3,11 +3,8 @@
 
 //устанавливаем размер буфера для не возможности его перемотки
 Console.SetBufferSize(5864, 29420);
-var p1 = new Point(1, 2, '*');
-p1.Draw();
-var p2 = new Point(4, 5, '#');
-p2.Draw();
-
+Console.Clear();
+// Отрисовка рамочки
 var upLine = new HorizontalLine(0, 78, 0, '+');
 var downLine = new HorizontalLine(0, 78, 24, '+');
 var leftLine = new VerticalLine(0, 24, 0, '+');
@@ -16,5 +13,10 @@ upLine.Draw();
 downLine.Draw();
 leftLine.Draw();
 rightLine.Draw();
+
+//Отрисовка точек
+var p = new Point(4, 5, '*');
+var snake = new Snake(p, 4, Direction.RIGHT);
+snake.Draw();
 
 Console.ReadKey();
