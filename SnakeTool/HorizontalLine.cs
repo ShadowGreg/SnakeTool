@@ -4,11 +4,11 @@ public class HorizontalLine: Figure
 {
     public HorizontalLine(int xLeft, int xRight, int yHorizontal, char horizontalSymbol)
     {
-        plist = new List<Point>();
+        pList = new List<Point>();
         for (var x = xLeft; x <= xRight; x++)
         {
             var p = new Point(x, yHorizontal, horizontalSymbol);
-            plist.Add(p);
+            pList.Add(p);
         }
     }
 /*

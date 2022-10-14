@@ -24,7 +24,7 @@ public class Point
         symbol = inPoint.symbol;
     }
 
-    public void Move(int offset, Direction direction)
+    public void PointMove(int offset, Direction direction)
     {
         if (direction == Direction.RIGHT)
         {
@@ -52,5 +52,10 @@ public class Point
     public override string ToString()
     {
         return x + ", " + y + ", " + symbol;
+    }
+    public void Clear()
+    {
+        symbol = ' ';
+        Draw();
     }
 }

@@ -4,10 +4,10 @@
 /// </summary>
 public class Figure
 {
-    protected List<Point> plist;
+    protected List<Point> pList;
     public void Draw()
     {
-        foreach (Point VARIABLE in plist)
+        foreach (Point VARIABLE in pList)
         {
             VARIABLE.Draw();
         }

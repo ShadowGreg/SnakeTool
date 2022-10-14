@@ -17,6 +17,11 @@ rightLine.Draw();
 //Отрисовка точек
 var p = new Point(4, 5, '*');
 var snake = new Snake(p, 4, Direction.RIGHT);
-snake.Draw();
+for (int INDEX = 0; INDEX < 10; INDEX++)
+{
+    snake.Move();
+    snake.Draw();
+    Thread.Sleep(300);
+}
 
 Console.ReadKey();
