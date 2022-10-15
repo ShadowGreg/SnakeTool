@@ -6,6 +6,7 @@
 public class Figure
 {
     protected List<Point> pList;
+    //полиморфизм функция принимает фигуру
     public virtual void Draw()
     {
         foreach (Point VARIABLE in pList)
@@ -13,7 +14,6 @@ public class Figure
             VARIABLE.Draw();
         }
     }
-    //полиморфизм функция принимает фигуру
     public bool IsHit(Figure figure)
     {
         foreach (Point point in pList)
